@@ -9,15 +9,16 @@ int main()
 {
 	int n;
 	cin>>n;
+	getchar();
+	getchar();
 	for(int l=0;l<n;l++)
 	{
 		map<string,float>mp;
 		float sum=0;
 		string s;
-		for(;;)
+		while(getline(cin,s))
 		{
-			cin>>s;
-			if(s==string(1,'\n'))
+			if(s.compare("")==0)
 			break;
 			mp[s]+=1;
 			sum+=1;
