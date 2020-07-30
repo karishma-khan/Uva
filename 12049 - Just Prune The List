@@ -1,0 +1,41 @@
+#include<iostream>
+#include<set>
+#include<map>
+#include<iterator>
+
+using namespace std;
+
+int main()
+{
+	int n;
+	cin>>n;
+	while(n--)
+	{
+		int s,t;
+		cin>>s>>t;
+		map<int,int>mp1;
+		for(int i=0;i<s;i++)
+		{
+			int d;
+			cin>>d;
+			mp1[d]+=1;
+		}
+		for(int i=0;i<t;i++)
+		{
+			int d;
+			cin>>d;
+			mp1[d]-=1;
+		}
+		int c=0;
+		
+			map<int,int>::iterator k;
+			for(k=mp1.begin();k!=mp1.end();++k)
+			{
+				if(k->second!=0)
+				c+=abs(k->second);
+			}
+		
+		cout<<c<<endl;
+	}
+	return 0;
+}
