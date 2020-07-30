@@ -1,0 +1,59 @@
+#include<iostream>
+#include<set>
+#include<iterator>
+
+using namespace std;
+
+int main()
+{
+	for(;;)
+	{
+		int m,n;
+		cin>>n>>m;
+		if(n==0&&m==0)
+		break;
+		set<int> s1;
+		set<int> s2;
+		for(int i=0;i<m;i++)
+		{
+			int d;
+			cin>>d;
+			s1.insert(d);
+		}
+		for(int i=0;i<m;i++)
+		{
+			int d;
+			cin>>d;
+			s2.insert(d);
+		}
+		set<int>::iterator i,j;
+		int count=0;
+		while(!s1.empty()&&!s2.empty())
+		{
+			i=s1.begin();
+			j=s2.begin();
+			int x,y;
+			x=*i;
+			y=*j;
+			if(x==y)
+			{
+				count++;
+				s1.erase(*i);
+				s2.erase(*j);
+			}
+			else
+			if(x>y)
+			{
+				s2.erase(*j);
+			}
+			
+			else
+			if(x<y)
+			{
+				s1.erase(*i);
+			}
+		}
+		cout<<count<<endl;
+	}
+	return 0;
+}
